@@ -1,0 +1,139 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+}
+
+
+
+<html>
+
+
+<style>
+
+
+
+    header {
+        background-color: #4150D6;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        width: 100%;
+        height: 10%
+    }
+  
+    .sidebar button {
+        display: block;
+        margin: 10px 40;
+        padding: 15px;
+        background-color: #A6C3F5;
+        color: white;
+        border: none;
+        width: 100%;
+        text-align: center;
+        margin-left: 20;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .sidebar a {
+        text-decoration: none;
+        color: #333;
+    }
+
+
+    .dBtn {
+        cursor: url(hand-cursor.png), auto;
+    }
+
+    .container {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .content {
+        flex: 4;
+        padding: 40px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 7;
+    }
+
+    th {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+        height: 45px;
+    }
+
+    td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+        height: 275px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+</style>
+
+
+<body>
+
+
+    <header>
+        <title>Task Management System</title>
+        
+        
+            
+        <h1> Task Management System</h1><br>
+        <p style="color:white" >4 components (Dashboard, Add member, View member and delete member) of the project are active for now. </p>
+
+    </header>
+
+    <div id="spacer" style="height:20">
+
+       
+
+        <div class="container">
+
+            <div class="sidebar">
+
+                <a href=@Url.Action("Dashboard")> <button style="margin-top: 48px" class="dBtn">DASHBOARD</button></a>
+                <a href=@Url.Action("AddMember")> <button class="dBtn">ADD MEMBER</button></a>
+                <a href="create_task.html"><button class="dBtn">CREATE TASK</button></a>
+                <a href=@Url.Action("ViewMember")> <button class="dBtn">EDIT & VIEW MEMBER</button></a>
+                <a href="task_status.html"><button class="dBtn">TASK STATUS</button></a>
+                <a href="login.html"><button class="dBtn">LOGOUT</button></a>
+            </div>
+
+            <div class="content">
+
+                <table>
+                    <tr>
+                        <th>Project Name</th>
+                        <th>Project Manager</th>
+                        <th>Due Date</th>
+                        <th>Status</th>
+                        <th>Progress</th>
+                    </tr>
+                    <tr>
+                        <td rowspan="100">Project</td>
+                        <td>Respective Manager</td>
+                        <td>Project due date</td>
+                        <td>Project status</td>
+                        <td>Project progress</td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+</body>
+
+</html>

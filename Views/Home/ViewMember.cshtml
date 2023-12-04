@@ -1,0 +1,104 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+
+    List<Member>? membersInfo;
+
+    membersInfo = (List<Member>?)ViewData["membersInfo"];
+  
+}
+
+
+
+<html>
+<head>
+
+    <title>Edit & View Members</title>
+ 
+    <style>
+        header {
+            background-color: #4150D6;
+            color: white;
+            padding: 5px;
+            text-align: center;
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+
+    <script>
+       
+        function deleteMember() {
+
+            var confirmed = confirm("Are you sure you want to delete this member?");
+            console.log("value of confirmed is "+confirmed)
+            if (confirmed == true) {
+                document.getElementById('deleteForm').submit();
+            } 
+            else {
+                // Handle the case when the user clicks "No"
+                // For example, you might show a message or perform other actions
+                console.log("Deletion canceled by user");
+            }
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <header>
+
+        <a style="color:white" ; href=@Url.Action("Dashboard")>Dashboard</a><div style="width:30%"></div>
+        <h1>   Edit & View Members</h1>
+
+
+
+    </header>
+    
+
+    <div style="display:flex; margin-left:15px; margin-right:15px; margin-top:10px;">
+
+
+        
+        <table style="border-collapse: collapse; width: 100%;">
+           
+<tr>
+                <th style="border: 1px solid black; padding: 8px; text-align: left; background-color: #f2f2f2;" text-align: center;>Employee ID</th>
+                <th style="border: 1px solid black; padding: 8px; text-align: left; background-color: #f2f2f2;">Name</th>
+                <th style="border: 1px solid black; padding: 8px; text-align: left; background-color: #f2f2f2;">Experties</th>
+                <th style="border: 1px solid black; padding: 8px; text-align: left; background-color: #f2f2f2;">Department</th>
+                <th style="border: 1px solid black; padding: 8px; text-align: left; background-color: #f2f2f2;">Action</th>
+            </tr>
+
+            @foreach (var member in membersInfo)
+            {
+                <tr>
+                    <td style="border: 1px solid black; padding: 8px;">@member.Ecode</td>
+                    <td style="border: 1px solid black; padding: 8px;">@member.Fname @member.Lname</td>
+                    <td style="border: 1px solid black; padding: 8px;">@member.Exper</td>
+                    <td style="border: 1px solid black; padding: 8px;">@member.Dept</td>
+                    <td style="border: 1px solid black; padding: 8px; display: flex; justify-content: center;">
+                       
+                        <button style="padding: 4px 8px; margin: 2px; cursor: pointer; border: none; background-color: #007bff; color: white; border-radius: 4px;">Edit</button>
+                       
+                        <form id="deleteForm" action="deleteMemberData" method="post">
+                           
+                            <button style="padding: 4px 8px; margin: 2px; cursor: pointer; border: none; background-color: #dc3545; color: white; border-radius:4px;" onclick="deleteMember()">Delete</button>
+                            <input type="hidden" name="EmployeeCode" id="employeeCode" value="@member.Ecode"/>
+                   </form>     
+                       
+                    </td>
+                </tr>
+            }
+                </table>
+
+       
+    </div>
+</body>
+</html>
+
+

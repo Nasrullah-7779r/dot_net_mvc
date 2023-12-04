@@ -1,0 +1,176 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Add Member";
+
+    Member member = new Member();
+}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a new member</title>
+
+
+
+    <style>
+        .body {
+            margin: 0 auto;
+        }
+
+        .left input {
+            margin: 0 auto;
+            padding: 10px;
+            width: 60%;
+            height: 15%;
+        }
+
+        .upload {
+            margin-left: 10%;
+        }
+
+        .contain {
+            display: flex;
+            padding: 10px;
+        }
+
+        .inputgroup {
+            padding: 5px;
+        }
+
+        .right {
+            width: 50%;
+        }
+
+        .left {
+            width: 50%;
+        }
+
+        .btn {
+            border-radius: 5px;
+            background-color: #007bff;
+            padding: 10px 25px 10px 25px;
+            color: white;
+            font-weight: 750;
+        }
+
+        .gender-container {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .gender-btn {
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 0 10px;
+            cursor: pointer;
+            background-color: #ffffff;
+        }
+
+        .employee-container {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .employee-btn {
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 0 10px;
+            cursor: pointer;
+            background-color: #ffffff;
+        }
+
+        .selected {
+            background-color: #007bff;
+            color: #ffffff;
+            border-color: #007bff;
+        }
+
+
+
+        header {
+            background-color: #4150D6;
+            color: white;
+            padding: 5px;
+            text-align: center;
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+
+    <header>
+
+        <a href=@Url.Action("Dashboard") style="color:white">Dashboard</a><div style="width:30%"></div>
+        <h1>Task Management System</h1>
+
+    </header>
+    
+    <form action="insertMemberData" method="post">
+    <h2 style="padding: 5px;">Add a new member</h2>
+    <div class="contain">
+
+        <div class="left" ; style="margin-top:2%">
+
+            <div class="inputgroup"><input type="text" name="Fname" placeholder="First Name"></div>
+
+                <div class="inputgroup"><input type="text" name="Lname" placeholder="Last Name"></div>
+
+                <div class="inputgroup"><input type="text" name="Exper" placeholder="Expertise"></div>
+
+                <div class="inputgroup"><input type="text" name="Dept" placeholder="Department"></div>
+
+                <div class="inputgroup"><input type="text" name="City" placeholder="City"></div>
+
+                <div class="inputgroup"><input type="number" name="Ecode" placeholder="Employee Code"></div>
+            
+            <div class="inputgroup"><input type="email" name="Email" placeholder="Email"></div>
+            
+            <div class="inputgroup"><input type="number" name="Cno" placeholder="Contact number"></div>
+
+        </div>
+        <div class="right">
+            <img src="https://static.vecteezy.com/system/resources/previews/020/213/738/original/add-profile-picture-icon-upload-photo-of-social-media-user-vector.jpg"
+                 style="width:40%; height:auto; margin-left:0%">
+            <p class="upload">Upload Picture Here</p>
+
+            <div class="gender-container">
+                Gender:
+                <input class="gender-btn" type="radio" name="Gender" value="male">Male
+                    <input class="gender-btn" type="radio" name="Gender" value="female">Female
+            </div>
+
+            <div class="employee-container">
+                Employee:
+                    <input class="employee-btn" type="radio" name="Employee_Type" value = "contract">Contract
+
+                    <!-- I don't know why it looks like a button rather than a radio input-->
+                    <inupt class="employee-btn" type="radio" name=" Employee_Type" value = "permanent">Permanent
+           
+                
+                </div>
+                      
+        </div>
+    </div>
+    <center>
+            <button  class="btn">Register</button>
+    </center>
+    </form>
+</body>
+ 
+</html>
+
