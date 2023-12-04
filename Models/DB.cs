@@ -6,7 +6,7 @@ namespace DotNetAssignment.Models
     {
       public static SqlConnection getConnnection()
         {
-            string connStr = @"Server=DESKTOP-RC5M4IJ;Initial Catalog=DotNet;Integrated Security=True;";
+            string connStr = @"your connection string";
             SqlConnection conn = new SqlConnection(connStr);
 
             try
